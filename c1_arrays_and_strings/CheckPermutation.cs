@@ -21,7 +21,7 @@ namespace CheckPermutationApp {
 
       if (firstList.Count != secondList.Count) return retval;
 
-      retval = firstList.All(secondList.Contains);
+      retval = firstList.OrderBy(x => x).SequenceEqual(secondList.OrderBy(x => x));
 
       return retval;
 
