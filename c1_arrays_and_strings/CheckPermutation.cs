@@ -16,11 +16,8 @@ namespace CheckPermutationApp {
       // take second string, do the same
       // if the two arrays have the same elements, the second is a permutation of the first 
 
-      List<string> firstList = new List<string>();
-      List<string> secondList = new List<string>();
-
-      firstList = Regex.Split(first, string.Empty).ToList();
-      secondList = Regex.Split(second, string.Empty).ToList();
+      List<string> firstList = new List<string>(Regex.Split(first, string.Empty));
+      List<string> secondList = new List<string>(Regex.Split(second, string.Empty));
 
       if (firstList.Count != secondList.Count) return retval;
 
@@ -46,7 +43,7 @@ namespace CheckPermutationApp {
 
       if (result) Console.WriteLine("String 2 is a permutation of string 1.");
       else Console.WriteLine("The strings are not permutations of each other.");
-      
+
     }
   }
 
