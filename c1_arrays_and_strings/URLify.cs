@@ -1,4 +1,4 @@
-// 1.2 implement an algorithm that when given string will replace
+// 1.3 implement an algorithm that when given string will replace
 // space characters with '%20'
 
 // test cases
