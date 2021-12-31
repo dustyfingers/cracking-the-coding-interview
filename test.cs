@@ -10,7 +10,7 @@ namespace HelloWorldApp {
       // Main Method
       static void Main(string[] args)
       {
-    
+          string uselessString = "123";
           // statement
           // printing Hello World!
           Console.WriteLine("Hello World!");
