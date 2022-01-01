@@ -1,5 +1,13 @@
-// 1.4 implement an algorithem that when given a string, it will 
+// 1.4 implement an algorithm that when given a string, will 
 // check whether the string is a permutation of a palindrome
+
+// ex: 'rrcacae' --> returns { result: true,  permutations: ['racecar', 'arcacre', ...]}
+// ex: 'Tact Coa' --> returns { result: true, permutations: ['taco cat', 'atco cta', ...] }
+
+using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace PalindromePermutation {
 
@@ -10,6 +18,42 @@ namespace PalindromePermutation {
       bool retval = false;
 
       // how to tackle this...
+      // find if the string can be rearranged to be a palindrome
+      // what does this mean?
+      // a palindrome has an even number of EVERY letter - except one. 
+      // it must have one letter that appear an uneven number of times
+
+      // ...right?
+
+      List<string> letterList = new List<string>(Regex.Split(givenStr, "").Where(s => s != ""));
+      Dictionary<string, int> letterHash = new Dictionary<string, int>();
+      
+      for (int i = 0; i < letterList.Count; i++)
+      {
+
+        Console.WriteLine(letterList[i]);
+        
+        if (letterHash[letterList[i]] > 0)
+        {
+
+          letterHash[letterList[i]]++;
+
+        } 
+        else 
+        {
+
+          letterHash.Add(letterList[i], 1);
+
+        }
+
+      }
+
+      foreach (KeyValuePair<string, int> kvp in letterHash)
+      {
+        
+        Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+
+      }
 
       return retval;
 
