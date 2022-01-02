@@ -16,6 +16,9 @@ namespace PalindromePermutation {
     private bool CheckIfPalindromePermutation(string givenStr)
     {
       bool retval = false;
+      int numOfEvenLetters = 0;
+      int numOfOddLetters = 0;
+      int numOfLettersTotal = 0;
 
       // how to tackle this...
       // find if the string can be rearranged to be a palindrome
@@ -25,15 +28,13 @@ namespace PalindromePermutation {
 
       // ...right?
 
-      List<string> letterList = new List<string>(Regex.Split(givenStr, "").Where(s => s != ""));
+      List<string> letterList = new List<string>(Regex.Split(givenStr, "").Where(s => (s != " " && s != "")));
       Dictionary<string, int> letterHash = new Dictionary<string, int>();
       
       for (int i = 0; i < letterList.Count; i++)
       {
 
-        Console.WriteLine(letterList[i]);
-        
-        if (letterHash[letterList[i]] > 0)
+        if (letterHash.ContainsKey(letterList[i]))
         {
 
           letterHash[letterList[i]]++;
@@ -50,10 +51,17 @@ namespace PalindromePermutation {
 
       foreach (KeyValuePair<string, int> kvp in letterHash)
       {
-        
-        Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
+
+        if (kvp.Value % 2 == 0) numOfEvenLetters++;
+        else numOfOddLetters++;
+
+        numOfLettersTotal++;
 
       }
+
+      if (numOfOddLetters != 1) return retval;
+
+      if (numOfLettersTotal - 1 == numOfEvenLetters) retval = true;
 
       return retval;
 
