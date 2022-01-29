@@ -17,11 +17,7 @@ const zeroMatrix  = givenMatrix => {
 
     // need a complete copy of the 2d array so when we are making changes to rows,
     // we are not comparing against rows that have changed
-    for (let i = 0; i < givenMatrix.length; i++) 
-    {         
-        const currentRow = givenMatrix[i]
-        retMatrix[i] = [...currentRow] 
-    }
+    for (let i = 0; i < givenMatrix.length; i++) { retMatrix[i] = [...givenMatrix[i]] }
 
     // for each item in the outer array
     for (let i = 0; i < givenMatrix.length; i++) 
@@ -32,14 +28,14 @@ const zeroMatrix  = givenMatrix => {
         // check for matrix validity
         if (currentRow.length !== initialInnerLen) throw "MatrixLengthError - One of the items in the array is not the correct length."
         
-        for (let j = 0; j < currentRow.length;j++) 
+        // for each item in the current row
+        for (let j = 0; j < currentRow.length; j++) 
         {
 
             // handle type errors
             if (typeof currentRow[j] !== 'number') throw new TypeError("Matrix must contain only numbers, and will only perform operations on integer values")
             
             // if this item is zero, set any item with the same x val or y val as this one to 0
-
             if (currentRow[j] !== 0) continue
             else
             {
