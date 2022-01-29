@@ -15,6 +15,8 @@ const zeroMatrix  = givenMatrix => {
 
     let retMatrix = []
 
+    // need a complete copy of the 2d array so when we are making changes to rows,
+    // we are not comparing against rows that have changed
     for (let i = 0; i < givenMatrix.length; i++) 
     {         
         const currentRow = givenMatrix[i]
