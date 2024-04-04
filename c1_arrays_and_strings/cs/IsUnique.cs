@@ -23,21 +23,15 @@ namespace IsUniqueApp {
       } else {
         retval = "This string has repeating characters.";
       }
-
       return retval;
 
     }
 
     public static void Main(string[] args) {
-
       IsUnique isUnique = new IsUnique();
-
       Console.WriteLine("Give me a string and I will determine if it is unique or not!");
-
       string givenString = Console.ReadLine();
-
       string result = isUnique.DetermineIfCharsUnique(givenString);
-
       Console.WriteLine(result);
 
     }

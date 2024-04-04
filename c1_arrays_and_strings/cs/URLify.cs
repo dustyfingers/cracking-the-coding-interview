@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace URLifyApp {
+    
   class URLify {
 
     private string URLifyString(string givenStr)
@@ -47,4 +48,5 @@ namespace URLifyApp {
     }
 
   }
+
 }
